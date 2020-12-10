@@ -1,7 +1,7 @@
 package nl.designlama.kabelgat.ui.main
 
-import androidx.lifecycle.ViewModel
+import nl.designlama.kabelgat.BaseViewModel
 
-class MainViewModel : ViewModel() {
+class MainViewModel : BaseViewModel() {
     // TODO: Implement the ViewModel
 }
