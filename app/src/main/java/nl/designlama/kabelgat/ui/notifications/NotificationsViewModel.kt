@@ -3,8 +3,9 @@ package nl.designlama.kabelgat.ui.notifications
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import nl.designlama.kabelgat.BaseViewModel
 
-class NotificationsViewModel : ViewModel() {
+class NotificationsViewModel : BaseViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is notifications Fragment"
