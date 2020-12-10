@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "materiaal")
 data class Materiaal(
-    @PrimaryKey var id: Int = 0,
+    @PrimaryKey var materiaalId: Int = 0,
     var naam: String = "",
     val omschrijving: String = ""
 )

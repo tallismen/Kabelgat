@@ -21,6 +21,6 @@ interface LedenDao {
     fun getAlleLeden(): List<Lid>
 
     @Transaction
-    @Query("SELECT * FROM leden WHERE lidNummer = :lidNummer")
-    fun getLidWithMateriaal(lidNummer: Int): List<LidWithMateriaal>
+    @Query("SELECT * FROM leden WHERE lidId = :lidId")
+    fun getLidWithMateriaal(lidId: Int): List<LidWithMateriaal>
 }

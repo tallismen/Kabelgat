@@ -10,7 +10,6 @@ import nl.designlama.kabelgat.database.entity.Lid
 import nl.designlama.kabelgat.database.entity.Materiaal
 import nl.designlama.kabelgat.database.entity.Uitlenen
 import nl.designlama.kabelgat.database.dao.MateriaalDao
-import nl.designlama.kabelgatapp.databases.dao.UitlenenDao
 
 @Database(entities = [Lid::class, Materiaal::class, Uitlenen::class], version = 1, exportSchema = false)
 @TypeConverters(DatabaseConverters::class)
@@ -18,7 +17,6 @@ abstract class AppDatabase : RoomDatabase() {
 
     abstract fun getLedenDao(): LedenDao
     abstract fun getMateriaalDao(): MateriaalDao
-    abstract fun getUitLenenDao(): UitlenenDao
 
     companion object {
         const val APP_DATABASE = "app_database.db"
