@@ -4,18 +4,20 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import nl.designlama.kabelgat.database.dao.LedenDao
-import nl.designlama.kabelgat.database.entity.Gereedschap
 import nl.designlama.kabelgat.database.entity.Lid
+import nl.designlama.kabelgat.database.entity.Materiaal
 import nl.designlama.kabelgat.database.entity.Uitlenen
-import nl.designlama.kabelgatapp.databases.dao.GereedschapDao
+import nl.designlama.kabelgat.database.dao.MateriaalDao
 import nl.designlama.kabelgatapp.databases.dao.UitlenenDao
 
-@Database(entities = [Lid::class, Gereedschap::class, Uitlenen::class], version = 1, exportSchema = false)
+@Database(entities = [Lid::class, Materiaal::class, Uitlenen::class], version = 1, exportSchema = false)
+@TypeConverters(DatabaseConverters::class)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun getLedenDao(): LedenDao
-    abstract fun getGereedschapDao(): GereedschapDao
+    abstract fun getMateriaalDao(): MateriaalDao
     abstract fun getUitLenenDao(): UitlenenDao
 
     companion object {

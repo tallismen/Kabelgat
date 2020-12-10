@@ -1,3 +1,10 @@
 package nl.designlama.kabelgat.database.entity
 
-data class Lid()
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "leden")
+data class Lid(
+    @PrimaryKey var lidNummer: Int = 0,
+    var naam: String = ""
+)

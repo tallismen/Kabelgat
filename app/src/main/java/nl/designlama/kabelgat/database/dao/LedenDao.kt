@@ -4,7 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Transaction
 import nl.designlama.kabelgat.database.entity.Lid
+import nl.designlama.kabelgat.database.entity.LidWithMateriaal
 
 @Dao
 interface LedenDao {
@@ -17,4 +19,8 @@ interface LedenDao {
 
     @Query("SELECT * FROM leden")
     fun getAlleLeden(): List<Lid>
+
+    @Transaction
+    @Query("SELECT * FROM leden WHERE lidNummer = :lidNummer")
+    fun getLidWithMateriaal(lidNummer: Int): List<LidWithMateriaal>
 }
