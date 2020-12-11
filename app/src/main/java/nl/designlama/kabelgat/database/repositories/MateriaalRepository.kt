@@ -10,9 +10,7 @@ class MateriaalRepository(val context: Context) {
     lateinit var materiaalDao: MateriaalDao
 
     init {
-        AppDatabase.getAppDatabase(context)?.let {
-            materiaalDao = it.getMateriaalDao()
-        }
+        AppDatabase.getAppDatabase(context)?.let { materiaalDao = it.getMateriaalDao() }
     }
 
     suspend fun insert(materiaal: Materiaal) {

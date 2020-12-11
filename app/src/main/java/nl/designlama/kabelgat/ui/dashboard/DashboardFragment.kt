@@ -12,14 +12,16 @@ import org.koin.android.viewmodel.ext.android.viewModel
 
 class DashboardFragment : Fragment() {
 
-    val dashboardViewModel: DashboardViewModel by viewModel()
+    val viewModel: DashboardViewModel by viewModel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
         val textView: TextView = root.findViewById(R.id.text_dashboard)
-        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+
+        viewModel.leden.observe(viewLifecycleOwner, Observer {
+            textView.text = it.toString()
         })
+
         return root
     }
 }

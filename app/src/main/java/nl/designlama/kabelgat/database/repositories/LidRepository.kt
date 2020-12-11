@@ -1,19 +1,17 @@
-package nl.designlama.kabelgatapp.databases.repositories
+package nl.designlama.kabelgat.database.repositories
 
 import android.content.Context
 import androidx.lifecycle.LiveData
-import nl.designlama.kabelgatapp.databases.AppDatabase
-import nl.designlama.kabelgatapp.databases.dao.LedenDao
-import nl.designlama.kabelgatapp.databases.entity.Lid
+import nl.designlama.kabelgat.database.AppDatabase
+import nl.designlama.kabelgat.database.dao.LedenDao
+import nl.designlama.kabelgat.database.entity.Lid
 
-class LidRepository constructor(context: Context) {
+class LidRepository(context: Context) {
 
     private lateinit var ledenDao: LedenDao
 
     init {
-        AppDatabase.getAppDatabase(context)?.let {
-            ledenDao = it.getLedenDao()
-        }
+        AppDatabase.getAppDatabase(context)?.let { ledenDao = it.getLedenDao() }
     }
 
     fun getAlleLiveDataLeden(): LiveData<List<Lid>> = ledenDao.getAlleLiveDataLeden()
@@ -21,7 +19,7 @@ class LidRepository constructor(context: Context) {
     fun getAlleLeden(): List<Lid> = ledenDao.getAlleLeden()
 
 
-    fun instert(lid: Lid) {
+    suspend fun insert(lid: Lid) {
         ledenDao.insert(lid)
     }
 }
