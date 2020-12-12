@@ -2,6 +2,10 @@
     <string name="app_name">Kabelgat</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_uitlenen">Uitlenen</string>
     <string name="title_notifications">Notifications</string>
+    <string name="materiaal">Materiaal</string>
+    <string name="lid">Lid</string>
+    <string name="leden">Leden</string>
+    <string name="totaal_materiaal">Totaal materiaal: %1$s</string>
 </resources>
