@@ -9,6 +9,10 @@ android {
     compileSdkVersion 29
     buildToolsVersion "30.0.2"
 
+    buildFeatures {
+        viewBinding true
+    }
+
     defaultConfig {
         applicationId "nl.designlama.kabelgat"
         minSdkVersion 23
