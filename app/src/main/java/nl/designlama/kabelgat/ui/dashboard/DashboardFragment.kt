@@ -11,6 +11,8 @@ import org.koin.android.viewmodel.ext.android.viewModel
 
 class DashboardFragment : BaseFragment<DashboardViewModel>() {
 
+    private var binding: FragmentDashboardBinding? = null
+
     override val viewModel: DashboardViewModel by viewModel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

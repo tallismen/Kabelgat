@@ -9,7 +9,11 @@
         android:id="@+id/navigation_home"
         android:name="nl.designlama.kabelgat.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_ledenFragment"
+            app:destination="@id/ledenFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_uitlenen"
@@ -22,4 +26,9 @@
         android:name="nl.designlama.kabelgat.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/ledenFragment"
+        android:name="nl.designlama.kabelgat.ui.leden.LedenFragment"
+        android:label="LedenFragment"
+        tools:layout="@layout/fragment_leden"/>
 </navigation>

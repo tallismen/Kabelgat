@@ -11,6 +11,8 @@ import org.koin.android.viewmodel.ext.android.viewModel
 
 class LedenFragment : BaseFragment<LedenViewModel>()  {
 
+    private var binding: FragmentLedenBinding? = null
+
     override val viewModel: LedenViewModel by viewModel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
