@@ -23,7 +23,7 @@ class HomeFragment : BaseFragment<HomeViewModel>()  {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        binding?.ledenButton?.setOnClickListener { findNavController().navigate(R.id.) }
+        binding?.ledenButton?.setOnClickListener { findNavController().navigate(HomeFragmentDirections.actionNavigationHomeToLedenFragment()) }
     }
 
     override fun onDestroy() {
