@@ -12,7 +12,7 @@ val myModule = module {
     single { DashboardViewModel(get()) }
     single { HomeViewModel() }
     single { NotificationsViewModel() }
-    single { LedenViewModel() }
+    single { LedenViewModel(get()) }
 
     single { MateriaalRepository(get()) }
     single { LidRepository(get()) }

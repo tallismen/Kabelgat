@@ -2,12 +2,25 @@ package nl.designlama.kabelgat.ui.leden
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import kotlinx.coroutines.launch
 import nl.designlama.kabelgat.BaseViewModel
+import nl.designlama.kabelgat.database.entity.Lid
+import nl.designlama.kabelgat.database.repositories.LidRepository
+import java.lang.Exception
 
-class LedenViewModel : BaseViewModel() {
+class LedenViewModel(private var lidRepository: LidRepository) : BaseViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+    val leden = MutableLiveData<ArrayList<Lid>>()
+
+    fun fetchLeden(){
+        launch {
+            try {
+                lidRepository.getAlleLiveDataLeden()
+            }catch (ex: Exception){
+
+            }
+        }
     }
-    val text: LiveData<String> = _text
+
+    fun getLiveDataLeden(): LiveData<List<Lid>> = lidRepository.getAlleLiveDataLeden()
 }

@@ -8,4 +8,6 @@
     <string name="lid">Lid</string>
     <string name="leden">Leden</string>
     <string name="totaal_materiaal">Totaal materiaal: %1$s</string>
+    <string name="geen_leden">Geen leden</string>
 </resources>
+
