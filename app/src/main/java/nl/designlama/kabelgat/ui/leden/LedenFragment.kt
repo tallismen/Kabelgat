@@ -6,10 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import nl.designlama.kabelgat.BaseFragment
 import nl.designlama.kabelgat.R
 import nl.designlama.kabelgat.database.entity.Lid
 import nl.designlama.kabelgat.databinding.FragmentLedenBinding
+import org.koin.android.ext.android.bind
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class LedenFragment : BaseFragment<LedenViewModel>(), LidAdapter.ClickListener  {
@@ -37,15 +39,24 @@ class LedenFragment : BaseFragment<LedenViewModel>(), LidAdapter.ClickListener  
         lidAdapter = LidAdapter(this)
 
         binding?.recyclerView?.adapter = lidAdapter
+        binding?.recyclerView?.layoutManager = LinearLayoutManager(view.context)
 
         viewModel.getLiveDataLeden().observe(viewLifecycleOwner, Observer {leden ->
             (binding?.recyclerView?.adapter as? LidAdapter)?.let {
                 it.leden.clear()
                 it.leden.addAll(leden)
                 it.notifyDataSetChanged()
-                binding?.emptyView?.visibility = if (it.isEmpty()) View.VISIBLE else View.GONE
+                binding?.emptyView?.visibility = if (it.leden.isEmpty()) View.VISIBLE else View.GONE
             }
         })
+
+        binding?.floatingActionButton?.setOnClickListener {
+            viewModel.lidToevoegen(Lid(naam = "Test"))
+        }
+
+        binding?.deleteButton?.setOnClickListener {
+            viewModel.allesVerwijderen()
+        }
     }
 
     override fun onDeleteClick(lid: Lid) {

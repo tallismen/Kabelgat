@@ -5,6 +5,6 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "leden")
 data class Lid(
-    @PrimaryKey var lidId: Int = 0,
+    @PrimaryKey(autoGenerate = true)var lidId: Int = 0,
     var naam: String = ""
 )

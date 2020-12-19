@@ -23,4 +23,16 @@ class LedenViewModel(private var lidRepository: LidRepository) : BaseViewModel()
     }
 
     fun getLiveDataLeden(): LiveData<List<Lid>> = lidRepository.getAlleLiveDataLeden()
+
+    fun lidToevoegen(lid: Lid){
+        launch {
+            lidRepository.insert(lid)
+        }
+    }
+
+    fun allesVerwijderen(){
+        launch {
+            lidRepository.deleteAll()
+        }
+    }
 }

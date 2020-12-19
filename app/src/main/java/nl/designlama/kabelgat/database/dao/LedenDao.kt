@@ -1,10 +1,7 @@
 package nl.designlama.kabelgat.database.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Transaction
+import androidx.room.*
 import nl.designlama.kabelgat.database.entity.Lid
 import nl.designlama.kabelgat.database.entity.LidWithMateriaal
 
@@ -23,4 +20,7 @@ interface LedenDao {
     @Transaction
     @Query("SELECT * FROM leden WHERE lidId = :lidId")
     fun getLidWithMateriaal(lidId: Int): List<LidWithMateriaal>
+
+    @Query("DELETE FROM leden")
+    fun deleteAll()
 }

@@ -19,7 +19,11 @@ class LidRepository(context: Context) {
     fun getAlleLeden(): List<Lid> = ledenDao.getAlleLeden()
 
 
-    suspend fun insert(lid: Lid) {
+    fun insert(lid: Lid) {
         ledenDao.insert(lid)
+    }
+
+    fun deleteAll(){
+        ledenDao.deleteAll()
     }
 }
